@@ -57,7 +57,7 @@ ipf_snapshot = '40e3426f-877e-46ee-a48d-18868b51262d'
         """
     )
     def run_report_with_default_settings():
-        toml_file = 'dora_report/inputs/inputs.toml'
+        toml_file = 'inputs/inputs.toml'
         ipf_token = st.secrets["ipf_token"]
         ipf_url = st.secrets["ipf_url"]
         nist_api_key = st.secrets["nist_api_key"]
