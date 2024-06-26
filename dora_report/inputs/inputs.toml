@@ -1,0 +1,27 @@
+# Inputs required to generate DORA report
+
+# source and destination IP addresss or subnets
+# protocol
+# port
+# URL
+# Comments
+applications = [
+    {"name" = "Internal-app", "source" = "172.16.12.60/31", "destination" = "172.16.31.60", "protocol" = "tcp", "port" = "443", "URL" = "https://app.internal/", "Comments" = "Internal app for use by users inside network"},
+    {"name" = "External-app", "source" = "172.16.21.0/24", "destination" = "172.16.32.60", "protocol" = "tcp", "port" = "443", "URL" = "https://app.external.com/", "Comments" = "External-facing app for use by users coming in over VPN"}
+]
+# Define the checks from ipfabric to preform and the requirements to fetch the data
+# Python SDK Accepts both API and Frontend endpoints
+intent_checks =[
+    {'unmanged_neighbors' = {'table_endpoint' = 'technology/cdp-lldp/unmanaged-neighbors', 'filter' = ''}},
+    {'hardware_eol' = {'table_endpoint' = 'tables/reports/eof/summary', 'filter' = '{"endSupport": ["color", "eq", "30"]}'}},
+    {'aaa'= {'table_endpoint' = 'tables/security/aaa/authorization', 'filter' = '{"primaryMethod": ["color", "eq", "20"]}'}},
+    {'ntp' = {'table_endpoint' = '/tables/management/ntp/summary', 'filter' = '{"confSources": ["color", "eq", "20"], "reachableSources": ["color", "eq", "20"]}'}},
+    {'snmp_summary' = {'table_endpoint' = '/technology/management/snmp/summary', 'filter' = '{"or": [{"communitiesCount": ["color", "eq", "20"]}, {"communitiesCount": ["color", "eq", "10"]}]}'}},
+    {'snmp_communities' = {'table_endpoint' = '/tables/management/snmp/communities', 'filter' = '{"name": ["color", "eq", "20"]}'}},
+    {'management_access' = {'table_endpoint' = 'tables/security/aaa/lines', 'filter' = '{"inTransports": ["any", "like", "telnet"]}'}},
+    {'cve' = true},
+    {'backups' = true}
+]
+
+ipf_snapshot = '40e3426f-877e-46ee-a48d-18868b51262d'
+
