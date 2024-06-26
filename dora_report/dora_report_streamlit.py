@@ -23,12 +23,6 @@ ipf_ss = st.sidebar.text_input(label='IPFabric Snapshot', help='Enter your IPFab
 nist_api_key = st.sidebar.text_input(label='NIST API Key', help='Enter your NIST API Key')
 try:
     all_devs, final_report_df = main(toml_file=uploaded_toml, ipf_token=ipf_token, ipf_url=ipf_url, ipf_ss=ipf_ss, nist_api_key=nist_api_key)
-    st.write("# App Data 1")
-    st.dataframe(final_report_df[0], width=5000)
-    st.write("# App Data 2")
-    st.dataframe(final_report_df[1])
-    st.write("# All Devices")
-    st.dataframe(all_devs)
 except Exception as e:
     st.write("Upload a valid toml file, heres and example of a valid toml file:")
     st.write(
