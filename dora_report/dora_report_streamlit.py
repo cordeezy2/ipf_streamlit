@@ -56,5 +56,14 @@ ipf_snapshot = '40e3426f-877e-46ee-a48d-18868b51262d'
 ```
         """
     )
+    st.button(label='Press here to Start with Default settings', on_click=main(
+        toml_file='dora_report/inputs/inputs.toml',
+        ipf_token=st.secrets["ipf_token"],
+        ipf_url=st.secrets["ipf_url"],
+        nist_api_key=st.secrets["nist_api_key"]
+        )
+   )
+    st.write('')
+    st.write(f"Displaying the current error:")
     st.write(f"Error: {e}")
 
