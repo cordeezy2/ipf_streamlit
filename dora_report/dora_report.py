@@ -134,10 +134,15 @@ class FetchDataForReporting:
         all_devices['backups'] = all_devices['sn'].isin(backup_configs_df['sn'])
         for df in final_report_df:
             df['backups'] = df['sn'].isin(backup_configs_df['sn'])
-        if for_streamlit:
-            return all_devices, final_report_df
         all_devices.to_csv('outputs/all_devices.csv')
         for idx, df in enumerate(final_report_df):
+            if for_streamlit:
+                for idx, report in enumerate(final_report_df):
+                    st.write(f"# App Data {idx}")
+                    st.dataframe(final_report_df[idx])
+                    st.write()
+                st.write(all_devices)
+                return all_devices, final_report_df
             df.to_csv(f'outputs/{idx}.csv')
         return all_devices, final_report_df
 
