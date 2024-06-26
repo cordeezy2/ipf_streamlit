@@ -138,7 +138,7 @@ class FetchDataForReporting:
             if for_streamlit:
                 for idx, report in enumerate(final_report_df, start= 1):
                     st.write(f"# App Data {idx}")
-                    st.write(report[idx])
+                    st.write(report)
                     st.write()
                 st.write("# All Devices")
                 st.write(all_devices)
