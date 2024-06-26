@@ -67,8 +67,8 @@ ipf_snapshot = '40e3426f-877e-46ee-a48d-18868b51262d'
             ipf_url=ipf_url,
             nist_api_key=nist_api_key
         )
+        st.button(label='Press here to Start with Default settings', on_click=run_report_with_default_settings)
 
-    st.button(label='Press here to Start with Default settings', on_click=run_report_with_default_settings)
     st.write('')
     st.write(f"Displaying the current error:")
     st.write(f"Error: {e}")
