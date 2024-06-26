@@ -141,6 +141,7 @@ class FetchDataForReporting:
                     st.write(f"# App Data {idx}")
                     st.dataframe(final_report_df[idx])
                     st.write()
+                st.write("# All Devices")
                 st.write(all_devices)
                 return all_devices, final_report_df
             df.to_csv(f'outputs/{idx}.csv')
