@@ -24,7 +24,7 @@ class FetchDataForReporting:
             auth=ipf_token or self.toml_data['ipf_token'],
             base_url=ipf_url or self.toml_data['ipf_url']
         )
-        self.ipf_columns_to_fetch = ['sn', 'hostname', 'model', 'vendor', 'siteName']
+        self.ipf_columns_to_fetch = ['sn', 'version', 'hostname', 'model', 'vendor', 'siteName']
 
     def fetch_intent_checks_data(self):
         list_of_intent_dfs = list()
