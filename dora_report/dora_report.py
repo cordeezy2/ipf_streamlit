@@ -27,7 +27,7 @@ class FetchDataForReporting:
         self.ipf_columns_to_fetch = ['sn', 'hostname', 'model', 'vendor', 'siteName']
 
     def fetch_intent_checks_data(self):
-```        list_of_intent_dfs = list()
+        list_of_intent_dfs = list()
         for get_intent_conf in self.toml_data['intent_checks']:
             for intent_name, table_config in get_intent_conf.items():
                 if isinstance(table_config, dict):
