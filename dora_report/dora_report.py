@@ -36,7 +36,7 @@ class FetchDataForReporting:
                         filters=table_config['filter'],
                         reports=True,
                         export='df',
-                    )```
+                    )
                     list_of_intent_dfs.append({intent_name: df})
         return list_of_intent_dfs
 
