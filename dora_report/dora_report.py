@@ -117,15 +117,15 @@ class FetchDataForReporting:
             final_report_df.append(app_df)
 
         # process cves
-        cve_dataframes = list()
-        all_devices['cve'] = False
-        for vul in vuls:
-            cve_totals_df = pd.DataFrame().from_dict(vul.dict()).loc['total_results']
-            cve_dataframes.append(cve_totals_df)
-        for cve_dataframe in cve_dataframes:
-            all_devices.loc[all_devices['version'].isin([cve_dataframe['version']]), 'cve'] = cve_dataframe['cves']
-            for df in final_report_df:
-                df.loc[df['version'].isin([cve_dataframe['version']]), 'cve'] = cve_dataframe['cves']
+        # cve_dataframes = list()
+        # all_devices['cve'] = False
+        # for vul in vuls:
+        #     cve_totals_df = pd.DataFrame().from_dict(vul.dict()).loc['total_results']
+        #     cve_dataframes.append(cve_totals_df)
+        # for cve_dataframe in cve_dataframes:
+        #     all_devices.loc[all_devices['version'].isin([cve_dataframe['version']]), 'cve'] = cve_dataframe['cves']
+        #     for df in final_report_df:
+        #         df.loc[df['version'].isin([cve_dataframe['version']]), 'cve'] = cve_dataframe['cves']
 
         # process device backup
         all_devices['backups'] = False
