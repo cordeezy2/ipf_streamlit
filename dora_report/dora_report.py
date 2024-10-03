@@ -98,10 +98,10 @@ class FetchDataForReporting:
                     all_merged_df.append({intent_name: merged_df})
                     all_devices[intent_name] = False
                     continue
-                all_devices[intent_name] = False
+                all_devices[intent_name] = True
                 merged_df = pd.merge(all_devices, intent_df[['sn']], on='sn')
                 all_merged_df.append({intent_name: merged_df})
-                all_devices.loc[all_devices['sn'].isin(merged_df['sn']), intent_name] = True
+                all_devices.loc[all_devices['sn'].isin(merged_df['sn']), intent_name] = False
 
         # process app data
         for app_tuple in list_app_tuple:
