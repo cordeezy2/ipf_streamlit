@@ -111,9 +111,9 @@ class FetchDataForReporting:
                     if intent_df is None:
                         app_df[intent_name] = False
                         continue
-                    app_df[intent_name] = False
+                    app_df[intent_name] = True
                     merged_df = pd.merge(app_df, intent_df[['sn']], on='sn')
-                    app_df.loc[app_df['sn'].isin(merged_df['sn']), intent_name] = True
+                    app_df.loc[app_df['sn'].isin(merged_df['sn']), intent_name] = False
             final_report_df.append(app_df)
 
         # process cves
